@@ -1,4 +1,9 @@
 # Sales Dashboard
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Plotly](https://img.shields.io/badge/Plotly%20-%20white?style=for-the-badge&logo=Plotly&labelColor=black&color=white)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit%20-%20white%20?style=for-the-badge&logo=Streamlit&color=white)
+
+![Demo](sales-dash-demo.gif)
+
 In this project, I used libraries Streamlit, Pandas, and Plotly Express.
 The goal of the project is to obtain a structured view of certain data and display it into charts, which includes:
 
@@ -21,7 +26,4 @@ Average branch ratings.
     - We can group data using the `.groupby()`, and the `sum()` methods.
 11. Display bar and pie charts with the grouped data.
     - We can display the charts by using the `px.bar`, `px.pie` and `plotly.chart`
-
-## Technologies Used
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Plotly](https://img.shields.io/badge/Plotly%20-%20white?style=for-the-badge&logo=Plotly&labelColor=black&color=white) ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit%20-%20white%20?style=for-the-badge&logo=Streamlit&color=white)
 
