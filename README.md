@@ -2,9 +2,10 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Plotly](https://img.shields.io/badge/Plotly%20-%20white?style=for-the-badge&logo=Plotly&labelColor=black&color=white)
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit%20-%20white%20?style=for-the-badge&logo=Streamlit&color=white)
 
-This is an interactive Streamlit application to visualize and explore supermarket sales using the `supermarket_sales.csv` dataset.
+In this project I used Streamlit, Pandas and Plotly Express to create an interactive dashboard
+for exploring supermarket sales from the `supermarket_sales.csv` dataset.
 
-For the Portuguese version of this README see [README.pt.md](README.pt.md).
+![Demo](assets/sales-dash-demo.gif)
 
 Key visualizations:
 - Monthly revenue by branch
@@ -13,7 +14,7 @@ Key visualizations:
 - Total revenue and aggregated metrics
 - Average branch ratings
 
-![Demo](assets/sales-dash-demo.gif)
+For the Portuguese version of this README see [README.pt.md](README.pt.md).
 
 **Dataset**
 The project uses the `supermarket_sales.csv` file, which contains sales records including date, branch, product line, unit price, quantity, total, payment method and rating. These fields are grouped and aggregated to produce the visualizations.
@@ -24,9 +25,9 @@ The project uses the `supermarket_sales.csv` file, which contains sales records 
 ```bash
 python -m venv .venv
 # Windows PowerShell
-.\.venv\\Scripts\\Activate.ps1
+.\.venv\Scripts\Activate.ps1
 # Windows cmd
-\.venv\\Scripts\\activate.bat
+\.venv\Scripts\activate.bat
 ```
 
 2. Install dependencies:
@@ -65,6 +66,4 @@ If you want, I can also:
 
 ---
 Updated to include an English translation and a link to the Portuguese README.
----
-Atualizado para fornecer instruções de execução e contexto do dataset.
 
