@@ -58,22 +58,22 @@ def generate_data(target_rows:int = 6641):
 
     # Define os pesos que os produtos tem em proporção
     product_weights = {
-        "Food and beverages": 50,     
-        "Health and beauty": 15,
+        "Food and beverages": 60,     
+        "Health and beauty": 10,
         "Sports and travel": 5,
-        "Home and lifestyle": 15,
+        "Home and lifestyle": 10,
         "Electronic accessories": 5, 
         "Fashion accessories": 10
     }
 
     # Define o range de preços por categoria de produtos
     price_ranges = {
-        "Food and beverages": (5, 100),     
-        "Health and beauty": (10, 300),
-        "Sports and travel": (30, 350),
+        "Food and beverages": (1, 190),     
+        "Health and beauty": (7, 290),
+        "Sports and travel": (20, 370),
         "Home and lifestyle": (5, 500),
-        "Electronic accessories": (50, 800), 
-        "Fashion accessories": (20, 300)
+        "Electronic accessories": (30, 1290), 
+        "Fashion accessories": (17, 330)
     }
 
     # Cria as listas das categorias e pesos 
