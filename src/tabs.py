@@ -1,28 +1,27 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import src.ml_utils as ml_utils
-import src.plots as plots
-import data.data_pipeline as data_pipeline
+from src import plots, ml_utils, ui
+from data import data_pipeline as dp
+from datetime import datetime
 
-df = data_pipeline.load_data()
+df = dp.load_data()
 
 def sales_dashboard(df_filtered):
-        # plots.plot_kpi(df_filtered)
+        ui.display_kpi(df_filtered)
+
+        st.space()
         col1, col2 = st.columns(2)
+        st.space()
         col3, col4 = st.columns(2)
+        st.space()
+
         col1.plotly_chart(plots.plot_revenue_by_date(df_filtered), width='stretch')
         col2.plotly_chart(plots.plot_revenue_by_product(df_filtered), width='stretch')
         col3.plotly_chart(plots.plot_revenue_by_branch(df_filtered), width='stretch')
         col4.plotly_chart(plots.plot_revenue_by_payment(df_filtered), width='stretch')
         
-
-        with st.expander("See full dataset"):
-            st.dataframe(
-                df_filtered.style.format({
-                    "Total": "U$ {:.2f}", "Rating": "{:.1f}", "Quantity": "{:.0f}"}),
-                    use_container_width=True
-            )
+        ui.display_dataset(df_filtered)
 
 def customer_segmentation(df_filtered):
         st.subheader("Customer Segmentation (K-Means)")        

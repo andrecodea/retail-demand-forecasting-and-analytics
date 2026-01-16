@@ -67,13 +67,16 @@ def sidebar_filters(df: pd.DataFrame) -> pd.DataFrame:
         selected_months = st.sidebar.multiselect(
             "Month analysis range",
             months,
-            default=months
+            placeholder="Select one or more months"
         )
+        
 
+        # 
         selected_city = st.sidebar.multiselect(
             "Select the branch for analysis",
             cities,
             default=cities,
+            placeholder="Select one or more branches"
             )
 
         # O filtro é aplicado caso as listas de filtros disponíveis existam/tenham conteúdo

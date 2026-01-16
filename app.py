@@ -2,10 +2,9 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from datetime import timedelta
-import ml_utils
-import plots
-import data.data_pipeline as data_pipeline
-import tabs
+from src import ml_utils, plots, tabs
+from data import data_pipeline
+
 
 st.set_page_config(
     layout="wide", 
@@ -14,7 +13,7 @@ st.set_page_config(
     )
 
 def main():
-    st.title("Intelligent Sales Dashboard")
+    st.title("Retail Demand Forecasting & Analysis Dashboard")
 
     with st.spinner("Loading database..."):
         # Carregamento dos Dados
