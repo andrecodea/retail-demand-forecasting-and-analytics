@@ -50,7 +50,6 @@ def apply_clustering(df, n_clusters=4) -> pd.DataFrame:
 
     return df_out
 
-
 def apply_linear_regression(df, horizon_days=365): 
 
     df_out = df.copy()

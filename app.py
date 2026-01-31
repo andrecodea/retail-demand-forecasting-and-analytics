@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from datetime import timedelta
-from src import ml_utils, plots, tabs
+from src import models, tabs, plots
 from data import data_pipeline
 
 
@@ -27,18 +27,16 @@ def main():
             return
 
 
-    # ====================================
-    # DASHBOARD
-    # ====================================
-
     # 3.4 Abas do aplicativo
-    tab1, tab2, tab3 = st.tabs(["📊 Sales Dashboard", "👥 Customer Segmentation", "📈 Revenue Forecast"])
+    tab1, tab2, tab3, tab4= st.tabs(
+        ["📊 Sales Dashboard", "👥 Customer Segmentation", "📈 Revenue Forecast", "🤖 AI Analyst"],
+        )
 
     # Aba 1: Dataviz
     with tab1:
         tabs.sales_dashboard(df_filtered)
 
-    # Aba 2: Machine Learning
+    # Aba 2:
     with tab2:
         tabs.customer_segmentation(df_filtered)
  
