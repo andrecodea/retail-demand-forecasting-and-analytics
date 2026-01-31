@@ -27,7 +27,7 @@ def plot_revenue_by_date(df:pd.DataFrame):
             df_daily,
             x="Date",
             y=["Total", "Gross income"],
-            title="Revenue by Date (U$)",
+            title="Revenue & Gross Income by Date (U$)",
             markers=True,
             color_discrete_sequence=px.colors.qualitative.Pastel
         )
@@ -227,7 +227,7 @@ def plot_revenue_by_payment(df: pd.DataFrame):
 # Forecast de faturamento com intervalo de confiança
 def plot_forecast_with_confidence(df:pd.DataFrame):
     """
-    Gera um line plot pra forecasting de faturamento com intervalo de confiança de 95%.
+    Gera um line plot para forecasting de faturamento com intervalo de confiança de 95%.
     
     :param df: DataFrame com os dados de forecasting (LinearRegression)
     :type df: pd.DataFrame

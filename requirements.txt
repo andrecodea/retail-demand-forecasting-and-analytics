@@ -3,3 +3,6 @@ plotly
 pandas
 scikit-learn
 numpy
+reportlab
+openai
+kaleido

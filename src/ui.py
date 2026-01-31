@@ -1,13 +1,15 @@
 import streamlit as st
 import pandas as pd
+
 # Display de KPIs
 def display_kpi(df:pd.DataFrame):
     st.header("Main Metrics")
     total_revenue = f"U$ {df["Total"].sum():,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    total_gross_income = f"U$ {df["Gross income"].sum():,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
     total_sales = df.shape[0]
     average_rating = f"{df["Rating"].mean():.2f}"
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
 
 
     col1.metric(
@@ -18,6 +20,13 @@ def display_kpi(df:pd.DataFrame):
      )
     
     col2.metric(
+     value=total_gross_income,
+     label="Total Gross income",
+     delta_color="normal",
+     border=True,
+     )
+    
+    col3.metric(
      value=total_sales,
      label="Total Sales",
      delta_color="normal",
@@ -25,7 +34,7 @@ def display_kpi(df:pd.DataFrame):
     )
      
     
-    col3.metric(
+    col4.metric(
      value=average_rating,
      label="Average Rating",
      delta_color="normal",
