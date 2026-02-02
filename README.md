@@ -2,27 +2,7 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Plotly](https://img.shields.io/badge/Plotly%20-%20white?style=for-the-badge&logo=Plotly&labelColor=black&color=white)
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit%20-%20white%20?style=for-the-badge&logo=Streamlit&color=white)
 
-In this project I used Streamlit, Pandas and Plotly Express to create an interactive dashboard
-for exploring supermarket sales from the `supermarket_sales.csv` dataset.
-
 ![Demo](assets/sales-dash-demo.gif)
-
-Key visualizations:
-- Monthly revenue by branch
-- Revenue by product line
-- Performance by payment method
-- Total revenue and aggregated metrics
-- Average branch ratings
-
-For the Portuguese version of this README see [README.pt.md](README.pt.md).
-
-**Dataset**
-The project uses the `supermarket_sales.csv` file, which contains sales records including date, branch, product line, unit price, quantity, total, payment method and rating. These fields are grouped and aggregated to produce the visualizations.
-
-**How to run (local)**
-1. Create and activate a virtual environment (optional):
-
-# Sales Dashboard — Technical Manual
 
 This repository contains a Streamlit-based sales dashboard for retail
 analytics. It demonstrates an end-to-end flow from data ingestion,
