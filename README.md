@@ -90,40 +90,54 @@ High-level layout (workspace root):
 
 	```mermaid
 	flowchart TB
-		subgraph Data
-			CSV[data/supermarket_sales_extended.csv]
-			GEN[data/data_generator.py]
-		end
-
-		subgraph App[Streamlit App]
-			APP[app.py]
-			DP[data/data_pipeline.py]
-			TABS[src/tabs.py]
-			UI[src/ui.py]
-			PLOTS[src/plots.py]
-			MODELS[src/models.py]
-			REPORTS[src/reports.py]
-		end
-
-		CSV --> DP
-		GEN --> CSV
-		DP --> APP
-		APP --> TABS
-		TABS --> PLOTS
-		TABS --> UI
-		TABS --> MODELS
-		MODELS -->|Forecast| PLOTS
-		MODELS -->|Clustering| PLOTS
-		MODELS -->|LLM (stream)| LLM[OpenAI/OpenRouter]
-		PLOTS --> REPORTS
-		MODELS --> REPORTS
-		REPORTS -->|PDF bytes| APP
-		APP -->|session_state| REPORTS
-		style APP fill:#f9f,stroke:#333,stroke-width:1px
-		style DP fill:#bbf,stroke:#333,stroke-width:1px
-		style MODELS fill:#bfb,stroke:#333,stroke-width:1px
-		style REPORTS fill:#ffd,stroke:#333,stroke-width:1px
-	```
+	    subgraph Data
+	        GEN["data/data_generator.py"]
+	        CSV["data/supermarket_sales_extended.csv"]
+	    end
+	
+	    subgraph App["Streamlit App"]
+	        DP["data/data_pipeline.py"]
+	        APP["app.py"]
+	        TABS["src/tabs.py"]
+	        UI["src/ui.py"]
+	        PLOTS["src/plots.py"]
+	        MODELS["src/models.py"]
+	        REPORTS["src/reports.py"]
+	    end
+	
+	    subgraph Cloud["External API"]
+	        LLM["OpenAI / OpenRouter"]
+	    end
+	
+	    %% Fluxo de Dados
+	    GEN --> CSV
+	    CSV --> DP
+	    DP --> APP
+	    
+	    %% Fluxo da Aplicação
+	    APP --> TABS
+	    TABS --> UI
+	    TABS --> PLOTS
+	    TABS --> MODELS
+	    
+	    %% Lógica de Negócio
+	    MODELS -- "Forecast Data" --> PLOTS
+	    MODELS -- "Cluster Data" --> PLOTS
+	    MODELS -- "Streaming" --> LLM
+	    
+	    %% Geração de Relatório
+	    PLOTS --> REPORTS
+	    MODELS --> REPORTS
+	    REPORTS -- "PDF Bytes" --> APP
+	    APP -.->|"session_state (Cache)"| REPORTS
+	
+	    %% Estilos
+	    style APP fill:#f9f,stroke:#333,stroke-width:2px
+	    style DP fill:#bbf,stroke:#333,stroke-width:1px
+	    style MODELS fill:#bfb,stroke:#333,stroke-width:1px
+	    style REPORTS fill:#ffd,stroke:#333,stroke-width:1px
+	    style LLM fill:#fff,stroke:#f00,stroke-width:2px,stroke-dasharray: 5 5
+ 	```
 
 Data: format and generation
 ---------------------------
