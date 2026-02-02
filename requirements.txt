@@ -6,3 +6,5 @@ numpy
 reportlab
 openai
 kaleido
+python-dotenv
+prophet
