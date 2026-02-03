@@ -2,27 +2,7 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Plotly](https://img.shields.io/badge/Plotly%20-%20white?style=for-the-badge&logo=Plotly&labelColor=black&color=white)
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit%20-%20white%20?style=for-the-badge&logo=Streamlit&color=white)
 
-In this project I used Streamlit, Pandas and Plotly Express to create an interactive dashboard
-for exploring supermarket sales from the `supermarket_sales.csv` dataset.
-
 ![Demo](assets/sales_analytics_.gif)
-
-Key visualizations:
-- Monthly revenue by branch
-- Revenue by product line
-- Performance by payment method
-- Total revenue and aggregated metrics
-- Average branch ratings
-
-For the Portuguese version of this README see [README.pt.md](README.pt.md).
-
-**Dataset**
-The project uses the `supermarket_sales.csv` file, which contains sales records including date, branch, product line, unit price, quantity, total, payment method and rating. These fields are grouped and aggregated to produce the visualizations.
-
-**How to run (local)**
-1. Create and activate a virtual environment (optional):
-
-# Sales Dashboard — Technical Manual
 
 This repository contains a Streamlit-based sales dashboard for retail
 analytics. It demonstrates an end-to-end flow from data ingestion,
@@ -90,40 +70,54 @@ High-level layout (workspace root):
 
 	```mermaid
 	flowchart TB
-		subgraph Data
-			CSV[data/supermarket_sales_extended.csv]
-			GEN[data/data_generator.py]
-		end
-
-		subgraph App[Streamlit App]
-			APP[app.py]
-			DP[data/data_pipeline.py]
-			TABS[src/tabs.py]
-			UI[src/ui.py]
-			PLOTS[src/plots.py]
-			MODELS[src/models.py]
-			REPORTS[src/reports.py]
-		end
-
-		CSV --> DP
-		GEN --> CSV
-		DP --> APP
-		APP --> TABS
-		TABS --> PLOTS
-		TABS --> UI
-		TABS --> MODELS
-		MODELS -->|Forecast| PLOTS
-		MODELS -->|Clustering| PLOTS
-		MODELS -->|LLM (stream)| LLM[OpenAI/OpenRouter]
-		PLOTS --> REPORTS
-		MODELS --> REPORTS
-		REPORTS -->|PDF bytes| APP
-		APP -->|session_state| REPORTS
-		style APP fill:#f9f,stroke:#333,stroke-width:1px
-		style DP fill:#bbf,stroke:#333,stroke-width:1px
-		style MODELS fill:#bfb,stroke:#333,stroke-width:1px
-		style REPORTS fill:#ffd,stroke:#333,stroke-width:1px
-	```
+	    subgraph Data
+	        GEN["data/data_generator.py"]
+	        CSV["data/supermarket_sales_extended.csv"]
+	    end
+	
+	    subgraph App["Streamlit App"]
+	        DP["data/data_pipeline.py"]
+	        APP["app.py"]
+	        TABS["src/tabs.py"]
+	        UI["src/ui.py"]
+	        PLOTS["src/plots.py"]
+	        MODELS["src/models.py"]
+	        REPORTS["src/reports.py"]
+	    end
+	
+	    subgraph Cloud["External API"]
+	        LLM["OpenAI / OpenRouter"]
+	    end
+	
+	    %% Fluxo de Dados
+	    GEN --> CSV
+	    CSV --> DP
+	    DP --> APP
+	    
+	    %% Fluxo da Aplicação
+	    APP --> TABS
+	    TABS --> UI
+	    TABS --> PLOTS
+	    TABS --> MODELS
+	    
+	    %% Lógica de Negócio
+	    MODELS -- "Forecast Data" --> PLOTS
+	    MODELS -- "Cluster Data" --> PLOTS
+	    MODELS -- "Streaming" --> LLM
+	    
+	    %% Geração de Relatório
+	    PLOTS --> REPORTS
+	    MODELS --> REPORTS
+	    REPORTS -- "PDF Bytes" --> APP
+	    APP -.->|"session_state (Cache)"| REPORTS
+	
+	    %% Estilos
+	    style APP fill:#f9f,stroke:#333,stroke-width:2px
+	    style DP fill:#bbf,stroke:#333,stroke-width:1px
+	    style MODELS fill:#bfb,stroke:#333,stroke-width:1px
+	    style REPORTS fill:#ffd,stroke:#333,stroke-width:1px
+	    style LLM fill:#fff,stroke:#f00,stroke-width:2px,stroke-dasharray: 5 5
+ 	```
 
 Data: format and generation
 ---------------------------
