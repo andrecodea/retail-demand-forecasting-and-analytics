@@ -9,20 +9,20 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger=logging.getLogger(__name__)
 
-"""Streamlit app entrypoint for the sales dashboard.
+# Streamlit app entrypoint for the sales dashboard.
 
-This module exposes a `main()` function that boots the Streamlit UI:
-- loads and prepares data via `data_pipeline.load_data()`,
-- applies sidebar filters via `data_pipeline.sidebar_filters()`,
-- renders the four main tabs implemented in `src.tabs`.
+# This module exposes a `main()` function that boots the Streamlit UI:
+# - loads and prepares data via `data_pipeline.load_data()`,
+# - applies sidebar filters via `data_pipeline.sidebar_filters()`,
+# - renders the four main tabs implemented in `src.tabs`.
 
-Behavior
-- Handles and logs unexpected errors to avoid crashing the UI.
-- Caches heavy artifacts in called modules when applicable.
+# Behavior
+# - Handles and logs unexpected errors to avoid crashing the UI.
+# - Caches heavy artifacts in called modules when applicable.
 
-Usage
-- Run `streamlit run app.py` to start the dashboard.
-"""
+# Usage
+# - Run `streamlit run app.py` to start the dashboard.
+
 
 # Configura o layout da página como wide, dá um título e um favicon.
 st.set_page_config(
