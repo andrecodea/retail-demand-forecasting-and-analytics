@@ -237,15 +237,3 @@ Contributing notes
 License
 -------
 See `LICENSE` at the repository root.
-
-Further help
-------------
-If you want, I can:
-
-- Run a quick lint pass (flake8/ruff) and fix small style issues.
-- Start the app and report runtime errors in the console.
-- Add unit tests for `models.apply_clustering` and
-	`models.apply_prophet_forecast` to validate metric computation.
-
----
-
