@@ -5,7 +5,7 @@
 In this project I used Streamlit, Pandas and Plotly Express to create an interactive dashboard
 for exploring supermarket sales from the `supermarket_sales.csv` dataset.
 
-![Demo](assets/sales-dash-demo.gif)
+![Demo](assets/sales_analytics_.gif)
 
 Key visualizations:
 - Monthly revenue by branch
